@@ -58,8 +58,12 @@ export default function UrlBar() {
         auth_value: authValue,
       });
 
-      setResponse(res.data);
-
+    setResponse({
+  status_code: 200,
+  response_time: 0,
+  response_size: JSON.stringify(res.data).length,
+  body: res.data,
+});
       await loadHistory();
     } catch (err: any) {
       console.error(err);
