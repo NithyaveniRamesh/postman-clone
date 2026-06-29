@@ -39,8 +39,13 @@ export default function SendButton() {
         response_time: 0,
         response_size: JSON.stringify(response.data).length,
         body: response.data,
-        headers: response.headers,
-      });
+        headers: Object.fromEntries(
+         Object.entries(response.headers || {}).map(([key, value]) => [
+           key,
+           value?.toString() ?? "",
+        ])
+        ),
+});
 
       toast.success("Request completed");
     } catch (error: any) {
