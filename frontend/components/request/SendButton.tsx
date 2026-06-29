@@ -35,12 +35,12 @@ export default function SendButton() {
       });
 
       setResponse({
-  status_code: response.status,
-  response_time: 0,
-  response_size: JSON.stringify(response.data).length,
-  body: response.data,
-  headers: response.headers,
-});
+        status_code: response.status,
+        response_time: 0,
+        response_size: JSON.stringify(response.data).length,
+        body: response.data,
+        headers: response.headers,
+      });
 
       toast.success("Request completed");
     } catch (error: any) {
