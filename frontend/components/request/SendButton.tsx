@@ -34,7 +34,12 @@ export default function SendButton() {
         environment: {},
       });
 
-      setResponse(response);
+      setResponse({
+  status_code: response.status,
+  response_time: 0,
+  response_size: JSON.stringify(response.data).length,
+  body: response.data,
+});
 
       toast.success("Request completed");
     } catch (error: any) {
